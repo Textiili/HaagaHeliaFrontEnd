@@ -15,11 +15,6 @@ function App() {
     setTodos([...todos, todo]);
   }
 
-  const removeTodo = (event) => {
-    event.preventDefault();
-    todos.filter((todo, i) => i !== index)
-  }
-
   return (
     <div>
       <h1>Simple todolist</h1>
@@ -39,7 +34,7 @@ function App() {
           todos.map((todo, index) =>
           <tr key="index">
             <td>{todo.date}</td>
-            <td>{todo.desc}<button>Delete</button></td>
+            <td>{todo.desc}</td>
           </tr>
           )
         }
