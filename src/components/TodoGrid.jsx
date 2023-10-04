@@ -22,10 +22,6 @@ export default function TodoGrid(props) {
             props.deleteTodo(removeIndex);
         }
     }
-
-    const priorityLevel = () => {
-
-    }
         
     return (
     <>
