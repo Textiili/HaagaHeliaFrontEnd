@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import './App.css';
-import TodoTable from './components/TodoTable';
-
+import TodoGrid from './components/TodoGrid';
 
 function App() {
-  const [todo, setTodo] = useState({description: '', date: ''});
+  const [todo, setTodo] = useState({description: '', date: '', priority: ''});
   const [todos, setTodos] = useState([]);
-
+    
   const inputChanged = (event) => {
     setTodo({...todo, [event.target.name]: event.target.value});
   }
 
   const addTodo = (event) => {
-    event.preventDefault();
     setTodos([...todos, todo]);
   }
 
@@ -22,19 +20,15 @@ function App() {
 
   return (
     <div>
-      <h1>Todolist with delete</h1>
-      <label htmlFor="addtodo">Add todo:</label>
-      <form id="addtodo" onSubmit={addTodo}>
-        <label htmlFor="date">Date: </label>
-        <input id="date" type="date" name="date" value={todo.date} onChange={inputChanged}/>
-        <label htmlFor="description">Description: </label>
-        <input id="description" type="text" name="description" value={todo.description} onChange={inputChanged}/>
-        <input type="submit" value="Add"/>
-      </form>
+      <h1>Todolist app</h1>
+      <input type="text" onChange={inputChanged} placeholder="Description" name="description" value={todo.description}/>
+      <input type="date" onChange={inputChanged} name="date" value={todo.date}/>
+      <input type="text" onChange={inputChanged} placeholder="Priority" name="priority" value={todo.priority}/>
+      <button onClick={addTodo}>Add</button>
       <br />
-      <TodoTable todos={todos} delete={deleteTodo}/>
-    </div>
-  );
+      <TodoGrid todos={todos} deleteTodo={deleteTodo}/>
+    </div>   
+    )
 }
 
 export default App;
