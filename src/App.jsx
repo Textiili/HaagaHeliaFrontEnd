@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import './App.css'
+import './App.css';
+import TodoTable from './components/TodoTable';
 
 
 function App() {
-  const [todo, setTodo] = useState({desc: '', date: ''});
+  const [todo, setTodo] = useState({description: '', date: ''});
   const [todos, setTodos] = useState([]);
 
   const inputChanged = (event) => {
@@ -15,7 +16,7 @@ function App() {
     setTodos([...todos, todo]);
   }
 
-  const removeTodo = (index) => {
+  const deleteTodo = (index) => {
     setTodos(todos.filter((todo, i) => i !== index));
   }
 
@@ -27,24 +28,11 @@ function App() {
         <label htmlFor="date">Date: </label>
         <input id="date" type="date" name="date" value={todo.date} onChange={inputChanged}/>
         <label htmlFor="description">Description: </label>
-        <input id="description" type="text" name="desc" value={todo.desc} onChange={inputChanged}/>
+        <input id="description" type="text" name="description" value={todo.description} onChange={inputChanged}/>
         <input type="submit" value="Add"/>
       </form>
       <br />
-      <table>
-       <tbody>
-       <tr><th>Date</th><th>Description</th><th></th></tr>
-        {
-          todos.map((todo, index) =>
-          <tr key="index">
-            <td>{todo.date}</td>
-            <td>{todo.desc}</td>
-            <td><button onClick={() => removeTodo(index)}>Delete</button></td>
-          </tr>
-          )
-        }
-      </tbody> 
-      </table>
+      <TodoTable todos={todos} delete={deleteTodo}/>
     </div>
   );
 }
