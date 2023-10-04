@@ -22,12 +22,17 @@ export default function TodoGrid(props) {
             props.deleteTodo(removeIndex);
         }
     }
+
+    const priorityLevel = () => {
+
+    }
         
     return (
     <>
     <button onClick={deleteSelected}>Poisto</button>
     <div className="ag-theme-material" style={{height: 400, width: 600}}>
     <AgGridReact 
+        animateRows={true}
         rowSelection="single" 
         columnDefs={columns} 
         rowData={props.todos} 
