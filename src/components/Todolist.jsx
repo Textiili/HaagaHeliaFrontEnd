@@ -19,7 +19,7 @@ function Todolist() {
 
   return (
     <div>
-      <h1>Todolist app</h1>
+      <h1>Welcome to Todolist!</h1>
       <input type="text" onChange={inputChanged} placeholder="Description" name="description" value={todo.description}/>
       <input type="date" onChange={inputChanged} name="date" value={todo.date}/>
       <input type="text" onChange={inputChanged} placeholder="Priority" name="priority" value={todo.priority}/>
