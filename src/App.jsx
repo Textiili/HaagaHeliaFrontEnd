@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
+import './index.css';
 import TodoGrid from './components/TodoGrid';
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
   const [todo, setTodo] = useState({description: '', date: '', priority: ''});
@@ -19,7 +21,13 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="App">
+      <nav>
+        <Link to={"/"}>Home </Link>
+        <Link to={"/About"}>About </Link>
+        <Link to={"/Contact"}>Contact </Link>
+      </nav>
+      <Outlet/>
       <h1>Todolist app</h1>
       <input type="text" onChange={inputChanged} placeholder="Description" name="description" value={todo.description}/>
       <input type="date" onChange={inputChanged} name="date" value={todo.date}/>
