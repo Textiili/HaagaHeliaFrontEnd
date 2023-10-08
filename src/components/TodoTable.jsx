@@ -1,4 +1,4 @@
-export default function TodoTable(props) {
+export default function TodoTable(props) { // LEGACY
 
     return(
         <div>
