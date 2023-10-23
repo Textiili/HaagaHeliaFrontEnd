@@ -19,6 +19,7 @@ function App() {
   };
 
   return (
+    <>
     <div>
       <Tabs value={value} onChange={handleChange}>
       <Tab value="Home" label="Home" />
@@ -31,6 +32,7 @@ function App() {
       {value === 'About' && <About></About>}
       {value === 'Contact' && <Contact></Contact>}
     </div>
+    </>
   )
 }
 
